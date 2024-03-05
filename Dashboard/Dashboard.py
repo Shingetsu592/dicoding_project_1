@@ -9,7 +9,7 @@ data_path = "Dashboard/all_data.csv"
 
 def intro():
     st.title('Welcome to the Dashboard')
-    st.write('This is a simple dashboard show the distribution of CO for each station.')
+    st.write('This is a simple dashboard show the distribution of CO, PM 2.5, and PM 10 for each station.')
 
 def clean_data(df):
     # remove the rows with missing values
