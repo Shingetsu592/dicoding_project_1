@@ -16,3 +16,4 @@ long version
 ```
 python -m streamlit run Dashboard.py
 ```
+note: if you can't use the short version try the long version
