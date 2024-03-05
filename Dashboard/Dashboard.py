@@ -6,18 +6,11 @@ import os
 
 names = []
 month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-direc = "Dashboard/main_data/"
+data_path = "Dashboard/all_data.csv"
 
 def intro():
     st.title('Welcome to the Dashboard')
     st.write('This is a simple dashboard show the distribution of CO for each station.')
-
-def import_data():
-    for files in os.listdir(direc):
-        names.append(direc + files)
-    # concat all the files into one dataframe
-    df = pd.concat([pd.read_csv(f) for f in names], ignore_index=True)
-    return df
 
 def clean_data(df):
     # remove the rows with missing values
@@ -55,7 +48,7 @@ def plot_CO(df, parameter):
     plt.clf()
 
 intro()
-df = import_data()
+df = pd.read_csv(data_path)
 df = clean_data(df)
 df = data_date(df)
 st.dataframe(df, use_container_width=True)
